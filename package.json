@@ -4,7 +4,7 @@
   "description": "This a game.",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "sass main.sass style.css -w"
+    "compile:sass": "sass main.scss style.css -w"
   },
   "repository": {
     "type": "git",

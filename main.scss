@@ -9,7 +9,6 @@
   --shadow-light: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.1);
   --shadow-dark: 0 1rem 3rem rgba(0, 0, 0, 0.15);
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -28,13 +27,11 @@ body {
   background-size: cover;
   color: var(--color--black-dark);
 }
-
 header {
   width: 100%;
   position: relative;
   padding: 2rem;
 }
-
 .btn {
   font-family: inherit;
   border: none;
@@ -47,15 +44,15 @@ header {
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-light);
   transition: all 0.2s;
-}
-.btn:active {
-  box-shadow: var(--shadow-dark);
-  transform: translateY(3px);
-}
-.btn--guide {
-  position: absolute;
-  top: 2rem;
-  left: 2rem;
+  &:active {
+    box-shadow: var(--shadow-dark);
+    transform: translateY(3px);
+  }
+  &--guide {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+  }
 }
 
 .game {
@@ -65,33 +62,34 @@ header {
   border-radius: 1rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  //   align-items: center;
+  //   justify-items: center;
 }
 
 .player {
   padding: 4rem 2rem;
   text-align: center;
-}
-.player__name {
-  font-size: 6rem;
-  font-weight: 400;
-}
-.player__score {
-  font-size: 6rem;
-  font-weight: 300;
-  color: var(--color-primary);
-}
-.player__current-box {
-  background-color: var(--color-primary);
-  color: #fff;
-  opacity: 0.8;
-  width: 65%;
-  border-radius: 1rem;
-  padding: 2rem 4rem;
-  font-size: 2rem;
-  margin-top: 20vh;
-}
-.player__current-box .current-label {
-  margin-bottom: 4rem;
-}
 
-/*# sourceMappingURL=style.css.map */
+  &__name {
+    font-size: 6rem;
+    font-weight: 400;
+  }
+  &__score {
+    font-size: 6rem;
+    font-weight: 300;
+    color: var(--color-primary);
+  }
+  &__current-box {
+    background-color: var(--color-primary);
+    color: #fff;
+    opacity: 0.8;
+    width: 65%;
+    border-radius: 1rem;
+    padding: 2rem 4rem;
+    font-size: 2rem;
+    margin-top: 20vh;
+    .current-label {
+      margin-bottom: 4rem;
+    }
+  }
+}
