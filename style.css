@@ -20,6 +20,16 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
+@media only screen and (max-width: 75em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 37.5%;
+  }
+}
 
 body {
   font-family: "Vazirmatn", sans-serif;
@@ -27,6 +37,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--color--black-dark);
+  height: 100vh;
 }
 
 header {
@@ -36,6 +47,8 @@ header {
 }
 
 .btn {
+  display: block;
+  position: absolute;
   font-family: inherit;
   border: none;
   border-radius: 100px;
@@ -50,30 +63,71 @@ header {
 }
 .btn:active {
   box-shadow: var(--shadow-dark);
-  transform: translateY(3px);
 }
 .btn--guide {
-  position: absolute;
   top: 2rem;
   left: 2rem;
 }
+.btn--new {
+  top: 2rem;
+  left: 20rem;
+}
+.btn--roll {
+  top: 10vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+@media only screen and (max-width: 56.25em) {
+  .btn--roll {
+    top: -10%;
+    left: 10%;
+    transform: translate(0, 50%);
+  }
+}
+.btn--hold {
+  top: 52vh;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+@media only screen and (max-width: 56.25em) {
+  .btn--hold {
+    top: -10%;
+    left: 50%;
+    transform: translate(0, 50%);
+  }
+}
 
 .game {
-  margin: 9.6vh auto;
+  margin: 10vh auto;
   background-color: var(--color-white-light);
-  width: 70%;
+  width: 70vw;
+  height: 70vh;
   border-radius: 1rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  position: relative;
+}
+@media only screen and (max-width: 81.25em) {
+  .game {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  .game {
+    flex-direction: column;
+  }
 }
 
 .player {
   padding: 4rem 2rem;
   text-align: center;
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .player__name {
   font-size: 6rem;
-  font-weight: 400;
+  font-weight: 300;
 }
 .player__score {
   font-size: 6rem;
@@ -84,14 +138,48 @@ header {
   background-color: var(--color-primary);
   color: #fff;
   opacity: 0.8;
-  width: 65%;
+  width: 50%;
   border-radius: 1rem;
-  padding: 2rem 4rem;
+  padding: 2rem;
   font-size: 2rem;
-  margin-top: 20vh;
+  margin-top: auto;
 }
 .player__current-box .current-label {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+}
+
+.dice {
+  position: absolute;
+  height: 10rem;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media only screen and (max-width: 56.25em) {
+  .dice {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 5rem;
+  }
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.player--active .player__name {
+  font-weight: 400;
+}
+
+.player--active .player__score {
+  font-weight: 400;
+}
+
+footer {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

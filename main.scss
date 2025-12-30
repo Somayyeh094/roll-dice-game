@@ -1,4 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
+@mixin respond($bp) {
+  @if ($bp==desk) {
+    @media only screen and (max-width: 81.25em) {
+      @content;
+    }
+  }
+  @if ($bp==tab-land) {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+  @if ($bp==tab-port) {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if ($bp==phone) {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+}
+
 :root {
   --color-primary: #c7365f;
   --color-gradient: linear-gradient(to top left, #753682 0%, #bf2e34 100%);
@@ -16,8 +39,14 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; //1rem=10px= 10/16
   box-sizing: border-box;
+  @include respond(tab-land) {
+    font-size: 50%; //1rem=8px=8/16
+  }
+  @include respond(phone) {
+    font-size: 37.5%; //1rem=6px=6/16
+  }
 }
 
 body {
@@ -26,13 +55,17 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--color--black-dark);
+  height: 100vh;
 }
 header {
   width: 100%;
   position: relative;
   padding: 2rem;
 }
+
 .btn {
+  display: block;
+  position: absolute;
   font-family: inherit;
   border: none;
   border-radius: 100px;
@@ -46,33 +79,64 @@ header {
   transition: all 0.2s;
   &:active {
     box-shadow: var(--shadow-dark);
-    transform: translateY(3px);
   }
   &--guide {
-    position: absolute;
     top: 2rem;
     left: 2rem;
+  }
+  &--new {
+    top: 2rem;
+    left: 20rem;
+  }
+  &--roll {
+    top: 10vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    @include respond(tab-port) {
+      top: -10%;
+      left: 10%;
+      transform: translate(0, 50%);
+    }
+  }
+  &--hold {
+    top: 52vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    @include respond(tab-port) {
+      top: -10%;
+      left: 50%;
+      transform: translate(0, 50%);
+    }
   }
 }
 
 .game {
-  margin: 9.6vh auto;
+  margin: 10vh auto;
   background-color: var(--color-white-light);
-  width: 70%;
+  width: 70vw;
+  height: 70vh;
   border-radius: 1rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  //   align-items: center;
-  //   justify-items: center;
+  display: flex;
+  position: relative;
+  @include respond(desk) {
+    width: 80%;
+  }
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
 }
 
 .player {
   padding: 4rem 2rem;
   text-align: center;
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__name {
     font-size: 6rem;
-    font-weight: 400;
+    font-weight: 300;
   }
   &__score {
     font-size: 6rem;
@@ -83,13 +147,44 @@ header {
     background-color: var(--color-primary);
     color: #fff;
     opacity: 0.8;
-    width: 65%;
+    width: 50%;
     border-radius: 1rem;
-    padding: 2rem 4rem;
+    padding: 2rem;
     font-size: 2rem;
-    margin-top: 20vh;
+    margin-top: auto;
     .current-label {
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
     }
   }
+}
+
+.dice {
+  position: absolute;
+  height: 10rem;
+  top: 25vh;
+  left: 50%;
+  transform: translateX(-50%);
+  @include respond(tab-port) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 5rem;
+  }
+}
+
+.player--active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.player--active .player__name {
+  font-weight: 400;
+}
+.player--active .player__score {
+  font-weight: 400;
+}
+
+footer {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #fff;
 }
