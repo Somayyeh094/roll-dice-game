@@ -8,6 +8,7 @@
   --color-white-light: rgba(255, 255, 255, 0.35);
   --shadow-light: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.1);
   --shadow-dark: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+  --shadow-dark-2: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -39,11 +40,26 @@ body {
   color: var(--color--black-dark);
   height: 100vh;
 }
+@media only screen and (orientation: landscape) and (max-width: 56.25em) {
+  body {
+    height: auto;
+  }
+}
 
 header {
   width: 100%;
   position: relative;
   padding: 2rem;
+}
+@media only screen and (orientation: landscape) and (max-width: 56.25em) {
+  header {
+    margin-bottom: 13rem;
+  }
+}
+@media only screen and (max-width: 56.25em) {
+  header {
+    margin-bottom: 15rem;
+  }
 }
 
 .btn {
@@ -73,7 +89,7 @@ header {
   left: 20rem;
 }
 .btn--roll {
-  top: 10vh;
+  top: 10%;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -85,7 +101,7 @@ header {
   }
 }
 .btn--hold {
-  top: 52vh;
+  top: 77%;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -98,7 +114,7 @@ header {
 }
 
 .game {
-  margin: 10vh auto;
+  margin: 8rem auto;
   background-color: var(--color-white-light);
   width: 70vw;
   height: 70vh;
@@ -114,6 +130,16 @@ header {
 @media only screen and (max-width: 56.25em) {
   .game {
     flex-direction: column;
+  }
+}
+@media only screen and (orientation: landscape) and (max-width: 56.25em) {
+  .game {
+    height: auto;
+  }
+}
+@media only screen and (orientation: landscape) and (min-width: 56.25em) {
+  .game {
+    margin-bottom: 1rem;
   }
 }
 
@@ -151,9 +177,10 @@ header {
 .dice {
   position: absolute;
   height: 10rem;
-  top: 25vh;
+  top: 25%;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: var(--shadow-dark-2);
 }
 @media only screen and (max-width: 56.25em) {
   .dice {
@@ -161,6 +188,11 @@ header {
     left: 50%;
     transform: translate(-50%, -50%);
     height: 5rem;
+  }
+}
+@media only screen and (orientation: landscape) {
+  .dice {
+    height: 6rem;
   }
 }
 
@@ -174,6 +206,10 @@ header {
 
 .player--active .player__score {
   font-weight: 400;
+}
+
+.player--active .player__current-box {
+  opacity: 1;
 }
 
 footer {

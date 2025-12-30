@@ -31,6 +31,7 @@
   --color-white-light: rgba(255, 255, 255, 0.35);
   --shadow-light: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.1);
   --shadow-dark: 0 1rem 3rem rgba(0, 0, 0, 0.15);
+  --shadow-dark-2: 0 1.5rem 3.5rem rgba(0, 0, 0, 0.2);
 }
 * {
   margin: 0;
@@ -56,11 +57,21 @@ body {
   background-size: cover;
   color: var(--color--black-dark);
   height: 100vh;
+  @media only screen and (orientation: landscape) and (max-width: 56.25em) {
+    height: auto;
+  }
 }
 header {
   width: 100%;
   position: relative;
   padding: 2rem;
+
+  @media only screen and (orientation: landscape) and (max-width: 56.25em) {
+    margin-bottom: 13rem;
+  }
+  @include respond(tab-port) {
+    margin-bottom: 15rem;
+  }
 }
 
 .btn {
@@ -89,7 +100,7 @@ header {
     left: 20rem;
   }
   &--roll {
-    top: 10vh;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, 0);
     @include respond(tab-port) {
@@ -99,7 +110,7 @@ header {
     }
   }
   &--hold {
-    top: 52vh;
+    top: 77%;
     left: 50%;
     transform: translate(-50%, 0);
     @include respond(tab-port) {
@@ -111,7 +122,7 @@ header {
 }
 
 .game {
-  margin: 10vh auto;
+  margin: 8rem auto;
   background-color: var(--color-white-light);
   width: 70vw;
   height: 70vh;
@@ -123,6 +134,12 @@ header {
   }
   @include respond(tab-port) {
     flex-direction: column;
+  }
+  @media only screen and (orientation: landscape) and (max-width: 56.25em) {
+    height: auto;
+  }
+  @media only screen and (orientation: landscape) and (min-width: 56.25em) {
+    margin-bottom: 1rem;
   }
 }
 
@@ -161,14 +178,18 @@ header {
 .dice {
   position: absolute;
   height: 10rem;
-  top: 25vh;
+  top: 25%;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: var(--shadow-dark-2);
   @include respond(tab-port) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 5rem;
+  }
+  @media only screen and (orientation: landscape) {
+    height: 6rem;
   }
 }
 
@@ -181,6 +202,9 @@ header {
 }
 .player--active .player__score {
   font-weight: 400;
+}
+.player--active .player__current-box {
+  opacity: 1;
 }
 
 footer {
