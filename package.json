@@ -1,0 +1,22 @@
+{
+  "name": "roll-dice-game",
+  "version": "1.0.0",
+  "description": "This a game.",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass main.sass style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Somayyeh094/roll-dice-game.git"
+  },
+  "author": "Somayyeh Seyedi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Somayyeh094/roll-dice-game/issues"
+  },
+  "homepage": "https://github.com/Somayyeh094/roll-dice-game#readme",
+  "devDependencies": {
+    "sass": "^1.97.1"
+  }
+}
