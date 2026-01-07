@@ -95,8 +95,8 @@ header {
 }
 @media only screen and (max-width: 56.25em) {
   .btn--roll {
-    top: -10%;
-    left: 10%;
+    top: 32vh;
+    left: 5vw;
     transform: translate(0, 50%);
   }
 }
@@ -107,8 +107,8 @@ header {
 }
 @media only screen and (max-width: 56.25em) {
   .btn--hold {
-    top: -10%;
-    left: 50%;
+    top: 32vh;
+    left: 50vw;
     transform: translate(0, 50%);
   }
 }
@@ -184,8 +184,8 @@ header {
 }
 @media only screen and (max-width: 56.25em) {
   .dice {
-    top: 50%;
-    left: 50%;
+    top: 35vh;
+    left: 40vw;
     transform: translate(-50%, -50%);
     height: 5rem;
   }
@@ -216,6 +216,63 @@ footer {
   font-size: 1.5rem;
   text-align: center;
   color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+.player--winner {
+  background-color: #2f2f2f;
+}
+
+.player--winner .player__name {
+  font-weight: 700;
+  color: #c7365f;
+}
+
+.overlay {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  backdrop-filter: blur(3px);
+}
+
+.modal-window {
+  visibility: hidden;
+  width: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.05);
+}
+@media only screen and (max-height: 25em) {
+  .modal-window {
+    transform: translate(-50%, 0);
+  }
+}
+.modal-window {
+  background-color: #fff;
+  z-index: 2;
+  font-size: 2rem;
+  padding: 4rem 6rem;
+  line-height: 2;
+  transition: all 0.2s;
+}
+.modal-window .close {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  line-height: 1;
+  font-size: 4rem;
+  color: var(--color--black-dark);
+  cursor: pointer;
+}
+.modal-window .close:hover {
+  color: var(--color-primary);
 }
 
 /*# sourceMappingURL=style.css.map */

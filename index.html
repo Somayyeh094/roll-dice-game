@@ -16,6 +16,7 @@
 
     <link rel="shortcut icon" href="favicon.png" type="image/ico" />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
     <title>تاس رو بنداز</title>
   </head>
   <body>
@@ -25,7 +26,7 @@
     </header>
     <main class="game">
       <section class="player player--0 player--active">
-        <h1 class="player__name">بازیکن 1</h1>
+        <h1 class="player__name">بازیکن <span class="persianNum">1</span></h1>
         <p class="player__score" id="score--0">43</p>
         <div class="player__current-box">
           <p class="current-label">امتیاز فعلی</p>
@@ -33,7 +34,7 @@
         </div>
       </section>
       <section class="player player--1">
-        <h1 class="player__name">بازیکن 2</h1>
+        <h1 class="player__name">بازیکن <span class="persianNum">2</span></h1>
         <p class="player__score" id="score--1">43</p>
         <div class="player__current-box">
           <p class="current-label">امتیاز فعلی</p>
@@ -43,8 +44,25 @@
       <img src="img/dice-3.png" class="dice" alt="playing dice" />
 
       <button class="btn btn--roll">تاس رو بنداز🎲</button>
-      <button class="btn btn--hold">امتیاز رو حساب کن🕹️</button>
+      <button class="btn btn--hold">حساب کن🕹️</button>
     </main>
+    <div class="modal-window">
+      <span class="close">&times</span>
+      <div class="game-explain">
+        <p>سلام👋</p>
+        <p>
+          بازی اینجوریه که بازیکن اول تاس رو مینداره، هر عدد که اومد توی امتیاز
+          فعلی نمایش داده میشه. اگر دکمه "حساب کن🕹️" رو بزنی، امتیازت حفظ میشه
+          اما نوبت به بازیکن بعدی می رسه. اما اگر دکمه رو نزنی میتونی بازم تاس
+          بندازی و توی امتیاز فعلیت میاد. هروقت تاس "<span class="persianNum"
+            >1</span
+          >" اومد تمام امتیاز فعلیت می سوزه و نوبت به بازیکن بعدی میرسه. هر
+          بازیکنی که زودتر به امتیاز "<span class="persianNum">100</span>" برسه،
+          برنده بازیه🥳🥳🥳
+        </p>
+      </div>
+    </div>
+    <div class="overlay hidden"></div>
     <footer><p>ساخته شده با ❤️ توسط سمیه</p></footer>
   </body>
 </html>
